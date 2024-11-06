@@ -21,4 +21,9 @@
 
 [Course Version](https://github.com/Charca/frontend-architecture-workshop/blob/main/exercise-solutions/requirements-final.md#influential-functional-requirements)
 
+# Exercise 3
+### Domain Models
 
+![image](https://github.com/user-attachments/assets/5b403eb5-da6b-4e37-bf03-8576e194d483)
+
+[Course Version](https://github.com/Charca/frontend-architecture-workshop/blob/main/exercise-solutions/domain-model-final.md)
