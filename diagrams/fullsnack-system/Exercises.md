@@ -18,3 +18,7 @@
 - Needs to integrate with async jobs to send emails for digital receipts after placing order
 - Needs websocket connection to keep track of real-time order status
 - Needs integration with notification system
+
+[Course Version](https://github.com/Charca/frontend-architecture-workshop/blob/main/exercise-solutions/requirements-final.md#influential-functional-requirements)
+
+
