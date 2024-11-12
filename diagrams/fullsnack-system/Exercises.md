@@ -31,3 +31,7 @@
 # Exercise 4
 
 [Sequence Diagram](https://github.com/brscherer/frontend-arch/blob/main/diagrams/fullsnack-system/DIAGRAMS.md#sequence-diagram)
+
+# Exercise 5
+
+![image](https://github.com/user-attachments/assets/8ad16cff-719d-4dda-acec-c7438520213f)
