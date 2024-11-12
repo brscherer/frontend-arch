@@ -29,4 +29,8 @@ When a customer places an order, the web app makes a request to the Core API whi
 The web app then uses this channel ID to subscribe to the web sockets server, which emits real-time events when the order status changes.
 If the connection with the web socket server drops at any point, the web app will start polling Core API with the latest order status.
 
+### Version 1 (first try)
 ![image](https://github.com/user-attachments/assets/0298599c-1d04-47bb-9cdd-12aacce08cfb)
+
+### Version 2 (from course)
+![image](https://github.com/user-attachments/assets/be1400ce-94cd-4128-a79a-2c0935377ab3)
