@@ -38,4 +38,5 @@
 
 # Exercise 6
 
+(From Course)
 https://github.com/brscherer/fullsnack/tree/main/apps/web/modules/restaurant
