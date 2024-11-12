@@ -35,3 +35,7 @@
 # Exercise 5
 
 ![image](https://github.com/user-attachments/assets/8ad16cff-719d-4dda-acec-c7438520213f)
+
+# Exercise 6
+
+https://github.com/brscherer/fullsnack/tree/main/apps/web/modules/restaurant
