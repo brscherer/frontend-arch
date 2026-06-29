@@ -59,3 +59,60 @@ The API only tells the client *which steps to show* (by ID). The client maps eac
 | **Bundle size** | Grows with every new screen/component added |
 | **A/B testing** | Requires feature flags + separate deploys or complex flag infrastructure |
 | **Conditional UI** | Logic hardcoded in components — changing conditions requires code change |
+
+---
+
+## Architecture B: Server-Driven UI
+
+**Location:** `server-driven-ui/`
+
+The client is a thin shell with generic primitive components. The server defines the entire screen layout, fields, validation, and actions in a JSON schema. The client renders whatever the server says.
+
+### How it works
+
+```
+┌──────────┐   runtime       ┌──────────────────┐
+│  Server   │ ────────────→  │  Client receives  │
+│  schema   │   GET /schema  │  JSON schema       │
+│  (JSON)   │                │                    │
+└──────────┘                └──────────────────┘
+       │                            │
+       │                      ┌─────▼──────┐
+       │                      │ Layout     │
+       │                      │ Renderer   │
+       │                      │ (maps type │
+       │                      │  → comp.)   │
+       │                      └─────┬──────┘
+       │                            │
+       ▼                     ┌──────▼───────┐
+  ┌──────────┐    runtime    │  Primitives   │
+  │  Server   │ ←──────────  │  TextField    │
+  │  validates│   POST data  │  SelectField  │
+  └──────────┘               │  CheckboxField│
+                             │  RadioField   │
+                             │  ProgressBar  │
+                             └──────────────┘
+```
+
+The client has **zero knowledge** of specific steps. It only knows how to render field types.
+
+### Pros
+
+| Aspect | Benefit |
+|--------|---------|
+| **Deploy velocity** | UI changes = edit server JSON → instant. No client deploy needed |
+| **A/B testing** | Serve different schemas to different cohorts. Trivial. |
+| **Conditional UI** | Server decides what to show per user/plan/context |
+| **Bundle size** | Small and fixed — primitives don't grow with new features |
+| **Consistency** | One schema language enforces uniform UI patterns |
+
+### Cons
+
+| Aspect | Drawback |
+|--------|----------|
+| **Network dependency** | App cannot render without a server response (layout + data) |
+| **Limited flexibility** | Only what the primitives support. Novel UI = new primitive = client deploy |
+| **Tooling immaturity** | No React DevTools for dynamic content; harder HMR |
+| **Testing complexity** | DOM structure varies per server response — selectors are brittle |
+| **Latency waterfall** | Must fetch schema first, *then* render. Adds a round trip |
+| **Caching strategy** | Must cache both layout schema and data, with different invalidation rules |
