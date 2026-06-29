@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "workspaces": ["shared", "traditional-bundling", "server-driven-ui"],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w shared\" \"npm run dev -w traditional-bundling\" \"npm run dev -w server-driven-ui\"",
+    "dev:shared": "npm run dev -w shared",
+    "dev:traditional": "npm run dev -w traditional-bundling",
+    "dev:sdui": "npm run dev -w server-driven-ui",
+    "build": "npm run build -w shared && npm run build -w traditional-bundling && npm run build -w server-driven-ui"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "typescript": "^5.6.0"
+  }
+}
