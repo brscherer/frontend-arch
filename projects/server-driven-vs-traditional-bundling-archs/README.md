@@ -116,3 +116,22 @@ The client has **zero knowledge** of specific steps. It only knows how to render
 | **Testing complexity** | DOM structure varies per server response — selectors are brittle |
 | **Latency waterfall** | Must fetch schema first, *then* render. Adds a round trip |
 | **Caching strategy** | Must cache both layout schema and data, with different invalidation rules |
+
+---
+
+## Head-to-Head Comparison
+
+| Dimension | Traditional Bundling | Server-Driven UI |
+|-----------|-------------------|------------------|
+| **Bundle size** | 151.6 KB (48.3 KB gzip) | 147.9 KB (47.6 KB gzip) |
+| **Time to interactive** | Must parse + execute full bundle | Thin shell — but waits for schema fetch |
+| **UI change cycle** | Code → PR → CI/CD → deploy (minutes/hours) | Edit JSON → instant |
+| **Add a new field** | Write a new React component | Add a field definition to the schema |
+| **Reorder steps** | Edit Wizard.tsx, reorder switch cases | Reorder array in JSON |
+| **Add a new step type** | Create new `StepFoo.tsx`, add to Wizard | Add a new server schema entry (client already handles it) |
+| **Change conditional logic** | Edit component code | Edit schema `condition` property |
+| **Offline support** | Full app works offline | Blank screen without server |
+| **Per-user customization** | Requires client logic or feature flags | Server serves different schemas per user |
+| **Developer experience** | HMR, React DevTools, full type safety | Must test via server responses; harder to debug |
+| **E2E test stability** | Static selectors (`.StepEmail input`) | Dynamic selectors depend on schema |
+| **Learning curve** | Standard React knowledge | React + custom schema language |
