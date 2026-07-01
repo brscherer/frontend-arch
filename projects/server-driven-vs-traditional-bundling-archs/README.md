@@ -135,3 +135,61 @@ The client has **zero knowledge** of specific steps. It only knows how to render
 | **Developer experience** | HMR, React DevTools, full type safety | Must test via server responses; harder to debug |
 | **E2E test stability** | Static selectors (`.StepEmail input`) | Dynamic selectors depend on schema |
 | **Learning curve** | Standard React knowledge | React + custom schema language |
+
+---
+
+## Key Trade-offs to Evaluate
+
+### 1. Velocity vs Flexibility
+
+SDUI maximizes **change velocity** — product changes are server config updates. But it caps **UI flexibility** to whatever the primitive set supports. If a designer wants a novel interaction, you need a new primitive (which requires a client deploy, defeating the purpose).
+
+Traditional bundling gives unlimited flexibility at the cost of slower iteration.
+
+### 2. Resilience vs Central Control
+
+Traditional bundling degrades gracefully — the app still renders even when the API is down. SDUI creates a hard dependency on the server for *both* data and layout. A schema server outage means a blank app.
+
+However, SDUI gives central control. You can fix a broken UI instantly across all users without waiting for them to update their client.
+
+### 3. Bundle Size Economics
+
+In a small app like this wizard, bundle differences are negligible (~4 KB). But at scale — think 50+ screens — the traditional bundle grows linearly with each new page. SDUI's primitive set stays roughly constant regardless of how many screens the server defines.
+
+### 4. Testing Strategy
+
+- **Traditional**: Unit test each `Step*` component with static props. E2E tests use stable selectors.
+- **SDUI**: Test each primitive in isolation. E2E tests must mock the schema or be parameterized by it. Schema changes can break tests even though client code didn't change.
+
+---
+
+## Experiments to Run
+
+| # | Experiment | What to Observe |
+|---|-----------|-----------------|
+| 1 | **Reorder steps** — Edit `shared/src/steps.ts` and reorder the array. Reload both apps. | Traditional: unchanged (hardcoded order). SDUI: reflects new order immediately. |
+| 2 | **Add a field** — Add a new `FieldDefinition` to any step in `steps.ts`. | Traditional: nothing changes (client ignores unknown fields). SDUI: new field renders automatically. |
+| 3 | **Change conditional logic** — Change `condition.equals` on the billing step from `"pro"` to `"free"`. | Traditional: unchanged. SDUI: billing now shows for free users. |
+| 4 | **Bundle analysis** — Run `npx vite build --analyze` on both projects (or compare `dist/` sizes). | Traditional grows with step count. SDUI stays constant. |
+| 5 | **Simulate API failure** — Stop the shared server and reload both apps. | Traditional: progress UI renders (can't submit). SDUI: blank screen with error. |
+| 6 | **Add a new step type** — Add a new step like `"upload_avatar"` with a `file` field type. | Traditional: need a new component + client deploy. SDUI: need a new primitive + client deploy. Both require client changes. |
+
+---
+
+## Running the Projects
+
+```sh
+# Terminal 1 — API server (port 3001)
+npm run dev:shared
+
+# Terminal 2 — Traditional bundling (port 5173)
+npm run dev:traditional
+
+# Terminal 3 — Server-Driven UI (port 5174)
+npm run dev:sdui
+
+# Or all at once:
+npm run dev
+```
+
+Both apps are identical in functionality. The difference is in *how* the UI is defined and delivered.
