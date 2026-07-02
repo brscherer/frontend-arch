@@ -1,0 +1,195 @@
+<mxfile host="app.diagrams.net" modified="2026-07-02T09:00:00Z" agent="Mozilla/5.0" version="24.2.5">
+  <diagram id="flow" name="Architecture Flow">
+    <mxGraphModel dx="0" dy="0" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Section: Build Time -->
+        <mxCell id="s-build" value="Build Time" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=16;fontStyle=1;fontColor=#e65100;" vertex="1" parent="1">
+          <mxGeometry x="20" y="10" width="300" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="bg-build" value="" style="rounded=0;whiteSpace=window;fillColor=#fff3e0;strokeColor=#ffe0b2;strokeWidth=2;fontSize=12;html=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="40" width="1060" height="300" as="geometry" />
+        </mxCell>
+
+        <!-- Source files column -->
+        <mxCell id="src-label" value="Source Files" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontColor=#795548;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="140" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="src-step-email" value="StepEmail.tsx" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="85" width="140" height="28" as="geometry" />
+        </mxCell>
+
+        <mxCell id="src-step-profile" value="StepProfile.tsx" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="118" width="140" height="28" as="geometry" />
+        </mxCell>
+
+        <mxCell id="src-step-prefs" value="StepPreferences.tsx" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="151" width="140" height="28" as="geometry" />
+        </mxCell>
+
+        <mxCell id="src-step-plan" value="StepPlan.tsx" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="184" width="140" height="28" as="geometry" />
+        </mxCell>
+
+        <mxCell id="src-ellipsis" value="..." style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=14;fontColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="212" width="140" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="src-wizard" value="Wizard.tsx" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#0d47a1;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="237" width="140" height="28" as="geometry" />
+        </mxCell>
+
+        <mxCell id="src-app" value="App.tsx" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#0d47a1;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="270" width="140" height="28" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: source files → build tool -->
+        <mxCell id="arrow-src-build" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeWidth=2;strokeColor=#ff6f00;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="185" y="190" as="sourcePoint" />
+            <mxPoint x="310" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Build tool -->
+        <mxCell id="build-tool" value="Vite / esbuild" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcc80;strokeColor=#e65100;fontSize=13;fontStyle=1;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="320" y="160" width="150" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: build tool → bundle -->
+        <mxCell id="arrow-build-bundle" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeWidth=2;strokeColor=#ff6f00;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="475" y="190" as="sourcePoint" />
+            <mxPoint x="600" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Bundle -->
+        <mxCell id="bundle" value="bundle.js" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ff8a65;strokeColor=#bf360c;fontSize=14;fontStyle=1;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="610" y="145" width="180" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="bundle-note" value="All components compiled into a single JavaScript bundle" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=10;fontColor=#bf360c;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="610" y="238" width="180" height="16" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: bundle → deploy -->
+        <mxCell id="arrow-bundle-deploy" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeWidth=2;strokeColor=#ff6f00;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="795" y="190" as="sourcePoint" />
+            <mxPoint x="910" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Deploy -->
+        <mxCell id="deploy" value="CDN / Deploy" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe0b2;strokeColor=#e65100;fontSize=12;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="920" y="165" width="140" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Divider -->
+        <mxCell id="divider-line" value="" style="line;strokeWidth=1;strokeColor=#bdbdbd;dashed=1;html=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="350" width="1040" height="10" as="geometry" />
+        </mxCell>
+
+        <mxCell id="divider-label" value="— deploy time —" style="text;html=1;strokeColor=none;fillColor=#fff3e0;align=center;fontSize=11;fontColor=#9e9e9e;" vertex="1" parent="1">
+          <mxGeometry x="440" y="345" width="140" height="18" as="geometry" />
+        </mxCell>
+
+        <!-- Section: Runtime -->
+        <mxCell id="s-runtime" value="Runtime" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=16;fontStyle=1;fontColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="20" y="370" width="300" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="bg-runtime" value="" style="rounded=0;whiteSpace=window;fillColor=#e3f2fd;strokeColor=#bbdefb;strokeWidth=2;fontSize=12;html=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="400" width="1060" height="300" as="geometry" />
+        </mxCell>
+
+        <!-- Browser -->
+        <mxCell id="browser" value="Browser" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#90caf9;strokeColor=#1565c0;fontSize=14;fontStyle=1;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="40" y="480" width="180" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="browser-note" value="Parses &amp; executes bundle.js" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=10;fontColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="530" width="180" height="16" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: browser → react renders -->
+        <mxCell id="arrow-browser-react" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeWidth=2;strokeColor=#1565c0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="225" y="505" as="sourcePoint" />
+            <mxPoint x="350" y="505" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- React renders step -->
+        <mxCell id="react-render" value="Wizard.tsx&#10;renders current step" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#64b5f6;strokeColor=#0d47a1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="480" width="180" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: render → step component -->
+        <mxCell id="arrow-render-step" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeWidth=2;strokeColor=#1565c0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="545" y="505" as="sourcePoint" />
+            <mxPoint x="650" y="505" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Step component -->
+        <mxCell id="step-comp" value="StepEmail.tsx&#10;(hardcoded component)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#42a5f5;strokeColor=#0d47a1;fontSize=12;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="660" y="475" width="170" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: step → user sees -->
+        <mxCell id="arrow-step-screen" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeWidth=2;strokeColor=#1565c0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="835" y="505" as="sourcePoint" />
+            <mxPoint x="920" y="505" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Screen -->
+        <mxCell id="screen" value="User sees&#10;UI Screen" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1e88e5;strokeColor=#0d47a1;fontSize=12;fontColor=#ffffff;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="930" y="475" width="130" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- API server interaction -->
+        <mxCell id="api-server" value="API Server" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#2e7d32;fontSize=13;fontStyle=1;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="360" y="630" width="180" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="api-note" value="Provides step IDs only" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=10;fontColor=#2e7d32;" vertex="1" parent="1">
+          <mxGeometry x="360" y="680" width="180" height="16" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: API → renderer -->
+        <mxCell id="arrow-api-render" value="GET step IDs" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;strokeWidth=1.5;strokeColor=#2e7d32;dashed=1;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="450" y="628" as="sourcePoint" />
+            <mxPoint x="450" y="535" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legend" value="Legend" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontStyle=1;fontColor=#616161;" vertex="1" parent="1">
+          <mxGeometry x="40" y="720" width="60" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="legend-bt" value="Build-time artifact" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcc80;strokeColor=#e65100;fontSize=9;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="40" y="745" width="110" height="22" as="geometry" />
+        </mxCell>
+
+        <mxCell id="legend-rt" value="Runtime artifact" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#64b5f6;strokeColor=#0d47a1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="170" y="745" width="110" height="22" as="geometry" />
+        </mxCell>
+
+        <mxCell id="legend-api" value="API interaction" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#2e7d32;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="300" y="745" width="110" height="22" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
