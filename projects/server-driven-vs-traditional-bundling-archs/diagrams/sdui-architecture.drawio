@@ -151,6 +151,35 @@
         <mxCell id="legend-prim" value="Primitive" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9fa8da;strokeColor=#283593;fontSize=9;" vertex="1" parent="1">
           <mxGeometry x="300" y="715" width="110" height="22" as="geometry" />
         </mxCell>
+
+        <!-- Data submission flow (POST) -->
+        <mxCell id="post-arrow-label" value="POST /api/wizard/submit" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=10;fontColor=#c62828;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="590" width="140" height="16" as="geometry" />
+        </mxCell>
+
+        <mxCell id="post-arrow" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeWidth=1.5;strokeColor=#c62828;dashed=1;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="510" as="sourcePoint" />
+            <mxPoint x="450" y="225" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Arrow from schema to client -->
+        <mxCell id="http-schema-arrow" value="HTTP response" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;entryX=0.5;entryY=0;strokeWidth=2;strokeColor=#00695c;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="790" y="160" as="sourcePoint" />
+            <mxPoint x="380" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="http-schema-label" value="Schema fetched at runtime" style="text;html=1;strokeColor=none;fillColor=#e8eaf6;align=center;fontSize=9;fontColor=#00695c;" vertex="1" parent="1">
+          <mxGeometry x="530" y="310" width="160" height="16" as="geometry" />
+        </mxCell>
+
+        <!-- Client receives schema -->
+        <mxCell id="client-receive" value="Receives JSON&#10;schema" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7986cb;strokeColor=#283593;fontSize=10;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="300" y="415" width="50" height="35" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
