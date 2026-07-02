@@ -1,0 +1,157 @@
+<mxfile host="app.diagrams.net" modified="2026-07-02T11:00:00Z" agent="Mozilla/5.0" version="24.2.5">
+  <diagram name="Architecture Flow" id="flow">
+    <mxGraphModel dx="0" dy="0" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Section: Server -->
+        <mxCell id="s-server" value="Server" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=16;fontStyle=1;fontColor=#00695c;" vertex="1" parent="1">
+          <mxGeometry x="20" y="10" width="300" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="bg-server" value="" style="rounded=0;whiteSpace=window;fillColor=#e0f2f1;strokeColor=#b2dfdb;strokeWidth=2;fontSize=12;html=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="40" width="1060" height="340" as="geometry" />
+        </mxCell>
+
+        <!-- Schema definition -->
+        <mxCell id="schema-def" value="Schema Definition (steps.ts)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#80cbc4;strokeColor=#00695c;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="70" width="200" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="schema-def-note" value="Defines steps, fields, validation,&#10;conditions, and actions as JSON" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=9;fontColor=#00695c;" vertex="1" parent="1">
+          <mxGeometry x="40" y="140" width="200" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: schema → server -->
+        <mxCell id="arrow-schema-server" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeWidth=2;strokeColor=#00695c;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="245" y="105" as="sourcePoint" />
+            <mxPoint x="350" y="105" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Express server -->
+        <mxCell id="express-server" value="Express Server&#10;(server.ts)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4db6ac;strokeColor=#00695c;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="70" width="180" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="express-note" value="GET /api/wizard/schema&#10;POST /api/wizard/submit" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=10;fontColor=#004d40;" vertex="1" parent="1">
+          <mxGeometry x="360" y="140" width="180" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: server → response -->
+        <mxCell id="arrow-server-response" value="JSON schema response" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeWidth=2;strokeColor=#00695c;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="545" y="105" as="sourcePoint" />
+            <mxPoint x="660" y="105" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- JSON response preview -->
+        <mxCell id="json-preview" value="{&quot;steps&quot;: [{&quot;id&quot;: &quot;email&quot;,&#10; &quot;fields&quot;: [{&quot;name&quot;:&quot;email&quot;,&#10; &quot;type&quot;:&quot;email&quot;,...}],&#10; &quot;actions&quot;: [...]}]}" style="rounded=1;whiteSpace=pre;html=1;fillColor=#e0f2f1;strokeColor=#00695c;fontSize=9;fontFamily=Consolas;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="670" y="55" width="240" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Divider -->
+        <mxCell id="divider-line" value="" style="line;strokeWidth=1;strokeColor=#bdbdbd;dashed=1;html=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="200" width="1040" height="10" as="geometry" />
+        </mxCell>
+
+        <mxCell id="divider-label" value="— HTTP —" style="text;html=1;strokeColor=none;fillColor=#e0f2f1;align=center;fontSize=11;fontColor=#9e9e9e;" vertex="1" parent="1">
+          <mxGeometry x="440" y="195" width="140" height="18" as="geometry" />
+        </mxCell>
+
+        <!-- Section: Client -->
+        <mxCell id="s-client" value="Client (browser)" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=16;fontStyle=1;fontColor=#283593;" vertex="1" parent="1">
+          <mxGeometry x="20" y="380" width="300" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="bg-client" value="" style="rounded=0;whiteSpace=window;fillColor=#e8eaf6;strokeColor=#c5cae9;strokeWidth=2;fontSize=12;html=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="410" width="1060" height="340" as="geometry" />
+        </mxCell>
+
+        <!-- Client app shell -->
+        <mxCell id="client-app" value="App.tsx&#10;(thin shell)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7986cb;strokeColor=#283593;fontSize=12;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="40" y="440" width="140" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: app → wizard -->
+        <mxCell id="arrow-app-wizard" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeWidth=2;strokeColor=#283593;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="185" y="470" as="sourcePoint" />
+            <mxPoint x="290" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Wizard container -->
+        <mxCell id="wizard-container" value="Wizard (App.tsx)&#10;fetches schema, manages&#10;current step index" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5c6bc0;strokeColor=#283593;fontSize=11;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="300" y="440" width="160" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: wizard → renderer -->
+        <mxCell id="arrow-wizard-renderer" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeWidth=2;strokeColor=#283593;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="465" y="475" as="sourcePoint" />
+            <mxPoint x="570" y="475" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- LayoutRenderer -->
+        <mxCell id="layout-renderer" value="LayoutRenderer.tsx&#10;(schema → component)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3f51b5;strokeColor=#1a237e;fontSize=11;fontColor=#ffffff;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="440" width="180" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="renderer-note" value="Switch(field.type) → &lt;TextField/&gt; | &lt;SelectField/&gt; | ..." style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=9;fontColor=#1a237e;" vertex="1" parent="1">
+          <mxGeometry x="580" y="500" width="180" height="16" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: renderer → primitives -->
+        <mxCell id="arrow-renderer-prims" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeWidth=1.5;strokeColor=#283593;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="765" y="470" as="sourcePoint" />
+            <mxPoint x="870" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Primitives -->
+        <mxCell id="primitives-title" value="Primitives" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=11;fontStyle=1;fontColor=#283593;" vertex="1" parent="1">
+          <mxGeometry x="880" y="430" width="180" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="prim-text" value="TextField.tsx" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9fa8da;strokeColor=#283593;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="880" y="455" width="140" height="22" as="geometry" />
+        </mxCell>
+
+        <mxCell id="prim-select" value="SelectField.tsx" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9fa8da;strokeColor=#283593;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="880" y="482" width="140" height="22" as="geometry" />
+        </mxCell>
+
+        <mxCell id="prim-checkbox" value="CheckboxField.tsx" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9fa8da;strokeColor=#283593;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="880" y="509" width="140" height="22" as="geometry" />
+        </mxCell>
+
+        <mxCell id="prim-radio" value="RadioField.tsx" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9fa8da;strokeColor=#283593;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="880" y="536" width="140" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legend" value="Legend" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontStyle=1;fontColor=#616161;" vertex="1" parent="1">
+          <mxGeometry x="40" y="690" width="60" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="legend-srv" value="Server component" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#80cbc4;strokeColor=#00695c;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="40" y="715" width="110" height="22" as="geometry" />
+        </mxCell>
+
+        <mxCell id="legend-cli" value="Client component" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7986cb;strokeColor=#283593;fontSize=9;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="170" y="715" width="110" height="22" as="geometry" />
+        </mxCell>
+
+        <mxCell id="legend-prim" value="Primitive" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9fa8da;strokeColor=#283593;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="300" y="715" width="110" height="22" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
