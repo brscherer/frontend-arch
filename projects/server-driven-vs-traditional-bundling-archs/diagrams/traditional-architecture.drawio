@@ -295,9 +295,19 @@
           </mxGeometry>
         </mxCell>
 
+        <!-- Note about sequential steps -->
+        <mxCell id="h-sequential-note" value="Steps rendered in&#10;hardcoded sequence.&#10;Changing order = deploy." style="text;html=1;strokeColor=none;fillColor=#fff3e0;align=center;fontSize=9;fontColor=#e65100;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="375" width="150" height="50" as="geometry" />
+        </mxCell>
+
         <!-- Note about conditional -->
         <mxCell id="h-conditional-note" value="Billing step only shown&#10;when plan === &quot;pro&quot;" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=9;fontColor=#c62828;fontStyle=0;" vertex="1" parent="1">
           <mxGeometry x="480" y="495" width="170" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- API note -->
+        <mxCell id="h-api-note" value="API provides step IDs only.&#10;Client maps ID → component." style="text;html=1;strokeColor=none;fillColor=#e8f5e9;align=center;fontSize=9;fontColor=#2e7d32;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="440" width="150" height="40" as="geometry" />
         </mxCell>
 
         <!-- Legend -->
