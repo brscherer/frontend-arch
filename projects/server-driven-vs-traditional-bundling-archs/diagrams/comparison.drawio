@@ -401,4 +401,105 @@
       </root>
     </mxGraphModel>
   </diagram>
+  <diagram id="failure-modes" name="Failure Modes">
+    <mxGraphModel dx="0" dy="0" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="Failure Mode Comparison" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=16;fontStyle=1;fontColor=#1d1d1f;" vertex="1" parent="1">
+          <mxGeometry x="300" y="20" width="500" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="subtitle" value="How each architecture behaves when things go wrong" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=11;fontColor=#757575;" vertex="1" parent="1">
+          <mxGeometry x="300" y="50" width="500" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Scenario 1: API server down -->
+        <mxCell id="s1-bg" value="" style="rounded=1;whiteSpace=window;fillColor=#f5f5f5;strokeColor=#e0e0e0;strokeWidth=1;fontSize=12;html=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="90" width="1040" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s1-label" value="API Server Down" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=13;fontStyle=1;fontColor=#c62828;" vertex="1" parent="1">
+          <mxGeometry x="50" y="100" width="200" height="22" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s1-trad" value="Traditional: UI renders normally (cached bundle).&#10;Only data submission fails. User can navigate steps." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="50" y="130" width="460" height="42" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s1-sdui" value="SDUI: Blank screen or loading spinner.&#10;App cannot render without the schema from the server." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#c62828;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="540" y="130" width="460" height="42" as="geometry" />
+        </mxCell>
+
+        <!-- Scenario 2: Slow network -->
+        <mxCell id="s2-bg" value="" style="rounded=1;whiteSpace=window;fillColor=#f5f5f5;strokeColor=#e0e0e0;strokeWidth=1;fontSize=12;html=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="210" width="1040" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s2-label" value="Slow Network" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=13;fontStyle=1;fontColor=#e65100;" vertex="1" parent="1">
+          <mxGeometry x="50" y="220" width="200" height="22" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s2-trad" value="Traditional: App loads instantly from CDN cache.&#10;Data requests may be slow but UI is already visible." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="50" y="250" width="460" height="42" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s2-sdui" value="SDUI: Schema fetch blocks rendering. User sees&#10;a loading state until the schema arrives." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#e65100;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="540" y="250" width="460" height="42" as="geometry" />
+        </mxCell>
+
+        <!-- Scenario 3: Schema bug -->
+        <mxCell id="s3-bg" value="" style="rounded=1;whiteSpace=window;fillColor=#f5f5f5;strokeColor=#e0e0e0;strokeWidth=1;fontSize=12;html=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="330" width="1040" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s3-label" value="Schema Bug" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=13;fontStyle=1;fontColor=#2e7d32;" vertex="1" parent="1">
+          <mxGeometry x="50" y="340" width="200" height="22" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s3-trad" value="Traditional: Not affected. Step components are&#10;compiled-in and independent of server config." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="50" y="370" width="460" height="42" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s3-sdui" value="SDUI: Broken layout or missing fields. But fix is&#10;instant — edit JSON on the server, no client deploy." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#2e7d32;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="540" y="370" width="460" height="42" as="geometry" />
+        </mxCell>
+
+        <!-- Scenario 4: New UI requirement -->
+        <mxCell id="s4-bg" value="" style="rounded=1;whiteSpace=window;fillColor=#f5f5f5;strokeColor=#e0e0e0;strokeWidth=1;fontSize=12;html=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="450" width="1040" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s4-label" value="New UI Requirement" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=13;fontStyle=1;fontColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="460" width="200" height="22" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s4-trad" value="Traditional: Full deploy cycle needed. Write new&#10;component, PR, CI/CD, rollout to users." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#e65100;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="50" y="490" width="460" height="42" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s4-sdui" value="SDUI: If within primitive capability → edit schema,&#10;instant. If new primitive needed → same as traditional." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="540" y="490" width="460" height="42" as="geometry" />
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legend-label" value="Color coding:" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=10;fontStyle=1;fontColor=#616161;" vertex="1" parent="1">
+          <mxGeometry x="50" y="580" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-adv" value="Advantage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#2e7d32;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="140" y="580" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-neutral" value="Neutral / mixed" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="240" y="580" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-dis" value="Disadvantage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#e65100;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="340" y="580" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-bad" value="Failure / broken" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#c62828;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="440" y="580" width="80" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
 </mxfile>
