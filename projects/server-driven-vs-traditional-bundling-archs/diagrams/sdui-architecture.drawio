@@ -106,6 +106,10 @@
           <mxGeometry x="580" y="500" width="180" height="16" as="geometry" />
         </mxCell>
 
+        <mxCell id="sdui-bundle-size" value="Client bundle: 148 KB (48 KB gzip)&#10;Stays fixed regardless of step count" style="text;html=1;strokeColor=none;fillColor=#e8f5e9;align=center;fontSize=9;fontColor=#2e7d32;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="640" width="180" height="34" as="geometry" />
+        </mxCell>
+
         <!-- Arrow: renderer → primitives -->
         <mxCell id="arrow-renderer-prims" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeWidth=1.5;strokeColor=#283593;" edge="1" parent="1">
           <mxGeometry relative="1" as="geometry">
