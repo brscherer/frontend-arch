@@ -184,6 +184,10 @@
         <mxCell id="client-receive" value="Receives JSON&#10;schema" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7986cb;strokeColor=#283593;fontSize=10;fontColor=#ffffff;" vertex="1" parent="1">
           <mxGeometry x="300" y="415" width="50" height="35" as="geometry" />
         </mxCell>
+
+        <mxCell id="waterfall-note" value="⚠ Latency waterfall: must fetch schema&#10;before rendering any UI" style="text;html=1;strokeColor=none;fillColor=#fff3e0;align=center;fontSize=9;fontColor=#e65100;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="680" width="180" height="34" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
