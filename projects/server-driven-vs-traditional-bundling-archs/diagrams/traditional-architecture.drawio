@@ -77,6 +77,14 @@
           <mxGeometry x="610" y="238" width="180" height="16" as="geometry" />
         </mxCell>
 
+        <mxCell id="bundle-size" value="151 KB (48 KB gzip)" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=9;fontColor=#bf360c;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="610" y="252" width="180" height="14" as="geometry" />
+        </mxCell>
+
+        <mxCell id="bundle-scale-note" value="Grows with each new step component" style="text;html=1;strokeColor=none;fillColor=#fff3e0;align=center;fontSize=8;fontColor=#e65100;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="610" y="265" width="180" height="18" as="geometry" />
+        </mxCell>
+
         <!-- Arrow: bundle → deploy -->
         <mxCell id="arrow-bundle-deploy" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeWidth=2;strokeColor=#ff6f00;" edge="1" parent="1">
           <mxGeometry relative="1" as="geometry">
