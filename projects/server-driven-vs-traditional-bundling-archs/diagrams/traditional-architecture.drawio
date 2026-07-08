@@ -39,6 +39,10 @@
           <mxGeometry x="40" y="212" width="140" height="20" as="geometry" />
         </mxCell>
 
+        <mxCell id="src-count" value="7 step components" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=8;fontColor=#1565c0;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="82" width="140" height="14" as="geometry" />
+        </mxCell>
+
         <mxCell id="src-wizard" value="Wizard.tsx" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#0d47a1;fontSize=11;fontStyle=1;" vertex="1" parent="1">
           <mxGeometry x="40" y="237" width="140" height="28" as="geometry" />
         </mxCell>
@@ -96,6 +100,10 @@
         <!-- Deploy -->
         <mxCell id="deploy" value="CDN / Deploy" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe0b2;strokeColor=#e65100;fontSize=12;arcSize=20;" vertex="1" parent="1">
           <mxGeometry x="920" y="165" width="140" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="deploy-freq" value="Deploy freq: per change" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=8;fontColor=#e65100;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="920" y="218" width="140" height="14" as="geometry" />
         </mxCell>
 
         <!-- Divider -->
