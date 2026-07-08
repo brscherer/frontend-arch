@@ -123,6 +123,10 @@
           <mxGeometry x="880" y="430" width="180" height="20" as="geometry" />
         </mxCell>
 
+        <mxCell id="primitives-count" value="6 reusable primitives" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=8;fontColor=#283593;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="448" width="180" height="14" as="geometry" />
+        </mxCell>
+
         <mxCell id="prim-text" value="TextField.tsx" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9fa8da;strokeColor=#283593;fontSize=9;" vertex="1" parent="1">
           <mxGeometry x="880" y="455" width="140" height="22" as="geometry" />
         </mxCell>
@@ -154,6 +158,10 @@
 
         <mxCell id="legend-prim" value="Primitive" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9fa8da;strokeColor=#283593;fontSize=9;" vertex="1" parent="1">
           <mxGeometry x="300" y="715" width="110" height="22" as="geometry" />
+        </mxCell>
+
+        <mxCell id="no-client-deploy" value="No client deploy needed for step changes&#10;Edit server schema → instant update" style="text;html=1;strokeColor=none;fillColor=#e8f5e9;align=center;fontSize=9;fontColor=#2e7d32;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="680" width="200" height="34" as="geometry" />
         </mxCell>
 
         <!-- Data submission flow (POST) -->
