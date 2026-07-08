@@ -16,6 +16,8 @@ Both projects implement the same **multi-step registration wizard**:
 
 The shared API server (`shared/`) provides the wizard data. What differs is **where the UI layout lives**.
 
+> **Diagrams:** Visual architecture diagrams are available in the [`diagrams/`](./diagrams/) folder, including architecture flow, component hierarchy, deploy cycle comparison, bundle size analysis, and failure mode comparisons.
+
 ---
 
 ## Architecture A: Traditional Bundling
