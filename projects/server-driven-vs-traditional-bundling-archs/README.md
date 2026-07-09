@@ -90,6 +90,8 @@ The client has **zero knowledge** of specific steps. It only knows how to render
 
 ## Head-to-Head Comparison
 
+> **Diagrams:** See [`diagrams/comparison.drawio`](./diagrams/comparison.drawio) for visual comparison pages including side-by-side architecture, deploy cycle, bundle size, failure modes, developer experience, caching strategies, and code complexity.
+
 | Dimension | Traditional Bundling | Server-Driven UI |
 |-----------|-------------------|------------------|
 | **Bundle size** | 151.6 KB (48.3 KB gzip) | 147.9 KB (47.6 KB gzip) |
