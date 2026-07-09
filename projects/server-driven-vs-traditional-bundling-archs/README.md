@@ -28,18 +28,7 @@ UI is compiled into JavaScript bundles at build time. Every screen, component, a
 
 ### How it works
 
-```
-┌──────────┐   build-time    ┌──────────────────┐
-│  Step*.tsx │ ────────────→ │  bundle.js        │
-│  Wizard.tsx│               │  (all components) │
-│  App.tsx   │               └──────────────────┘
-└───────────┘                       │
-                                    ▼
-┌──────────┐   runtime        ┌──────────────────┐
-│  API      │ ←────────────── │  Client renders   │
-│  server   │    step IDs     │  hardcoded steps  │
-└──────────┘                  └──────────────────┘
-```
+See [`diagrams/traditional-architecture.drawio`](./diagrams/traditional-architecture.drawio) for a visual diagram.
 
 The API only tells the client *which steps to show* (by ID). The client maps each ID to a compiled component.
 
@@ -72,29 +61,7 @@ The client is a thin shell with generic primitive components. The server defines
 
 ### How it works
 
-```
-┌──────────┐   runtime       ┌──────────────────┐
-│  Server   │ ────────────→  │  Client receives  │
-│  schema   │   GET /schema  │  JSON schema       │
-│  (JSON)   │                │                    │
-└──────────┘                └──────────────────┘
-       │                            │
-       │                      ┌─────▼──────┐
-       │                      │ Layout     │
-       │                      │ Renderer   │
-       │                      │ (maps type │
-       │                      │  → comp.)   │
-       │                      └─────┬──────┘
-       │                            │
-       ▼                     ┌──────▼───────┐
-  ┌──────────┐    runtime    │  Primitives   │
-  │  Server   │ ←──────────  │  TextField    │
-  │  validates│   POST data  │  SelectField  │
-  └──────────┘               │  CheckboxField│
-                             │  RadioField   │
-                             │  ProgressBar  │
-                             └──────────────┘
-```
+See [`diagrams/sdui-architecture.drawio`](./diagrams/sdui-architecture.drawio) for a visual diagram.
 
 The client has **zero knowledge** of specific steps. It only knows how to render field types.
 
