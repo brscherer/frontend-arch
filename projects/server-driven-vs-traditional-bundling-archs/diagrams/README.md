@@ -8,7 +8,7 @@ This directory contains architecture diagrams for the Server-Driven UI vs Tradit
 |------|-------|-------------|
 | `traditional-architecture.drawio` | 2 | Architecture flow (build time + runtime) and component hierarchy |
 | `sdui-architecture.drawio` | 2 | Server schema flow, client rendering flow, and component hierarchy |
-| `comparison.drawio` | 7 | Side-by-side comparison, deploy cycle, bundle size analysis, failure modes, developer experience, caching strategy, and code complexity |
+| *Comparison* | — | See the **Head-to-Head Comparison** tables in the [main README](../README.md) instead |
 
 ## How to View
 

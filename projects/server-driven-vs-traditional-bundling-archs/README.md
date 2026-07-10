@@ -90,22 +90,74 @@ The client has **zero knowledge** of specific steps. It only knows how to render
 
 ## Head-to-Head Comparison
 
-> **Diagrams:** See [`diagrams/comparison.drawio`](./diagrams/comparison.drawio) for visual comparison pages including side-by-side architecture, deploy cycle, bundle size, failure modes, developer experience, caching strategies, and code complexity.
+### Architecture & Rendering
 
 | Dimension | Traditional Bundling | Server-Driven UI |
 |-----------|-------------------|------------------|
-| **Bundle size** | 151.6 KB (48.3 KB gzip) | 147.9 KB (47.6 KB gzip) |
-| **Time to interactive** | Must parse + execute full bundle | Thin shell — but waits for schema fetch |
-| **UI change cycle** | Code → PR → CI/CD → deploy (minutes/hours) | Edit JSON → instant |
-| **Add a new field** | Write a new React component | Add a field definition to the schema |
-| **Reorder steps** | Edit Wizard.tsx, reorder switch cases | Reorder array in JSON |
-| **Add a new step type** | Create new `StepFoo.tsx`, add to Wizard | Add a new server schema entry (client already handles it) |
-| **Change conditional logic** | Edit component code | Edit schema `condition` property |
-| **Offline support** | Full app works offline | Blank screen without server |
-| **Per-user customization** | Requires client logic or feature flags | Server serves different schemas per user |
-| **Developer experience** | HMR, React DevTools, full type safety | Must test via server responses; harder to debug |
-| **E2E test stability** | Static selectors (`.StepEmail input`) | Dynamic selectors depend on schema |
-| **Learning curve** | Standard React knowledge | React + custom schema language |
+| **UI source of truth** | Compiled bundle at build time | Server JSON schema at runtime |
+| **Client-side rendering** | Hardcoded `Step*.tsx` components mapped by `switch(stepId)` | Generic `LayoutRenderer` maps `switch(field.type)` to primitives |
+| **Component count** | 7 step components + 3 layout files (grows with features) | 6 primitives + 1 layout renderer (fixed) |
+| **Adding a new step** | Create `.tsx` file → import → add switch case → deploy | Add entry to server schema JSON only |
+| **Skinny vs fat client** | Fat client — all logic compiled in | Skinny client — rendering logic on server |
+
+### Performance & Bundle
+
+| Dimension | Traditional Bundling | Server-Driven UI |
+|-----------|-------------------|------------------|
+| **Bundle size (current)** | 151.6 KB (48.3 KB gzip) | 147.9 KB (47.6 KB gzip) |
+| **Bundle growth (10 screens)** | ~250 KB | ~155 KB |
+| **Bundle growth (25 screens)** | ~400 KB | ~165 KB |
+| **Bundle growth (50 screens)** | ~700 KB | ~180 KB |
+| **Time to interactive** | Parse + execute full bundle | Thin shell loads fast, but blocked on schema fetch |
+| **Offline support** | Full app renders offline (cached bundle + service worker) | Blank screen — needs server for both layout and data |
+
+### Change Velocity
+
+| Dimension | Traditional Bundling | Server-Driven UI |
+|-----------|-------------------|------------------|
+| **UI change cycle** | Code → PR → CI/CD → deploy (minutes–hours) | Edit server JSON → instant |
+| **Deploy frequency** | Every UI change requires full pipeline | Only when server itself changes |
+| **Step reordering** | Edit Wizard.tsx, reorder switch cases | Reorder array in JSON schema |
+| **Conditional logic changes** | Edit component `.tsx` code | Edit `condition` property in schema |
+| **A/B testing** | Requires feature flags + separate deploys | Serve different schema per cohort — zero client changes |
+
+### Failure Modes
+
+| Scenario | Traditional Bundling | Server-Driven UI |
+|----------|-------------------|------------------|
+| **API server down** | UI renders normally (cached bundle). Only submission fails. | Blank screen or loading spinner. No render without schema. |
+| **Slow network** | App loads instantly from CDN. Data requests delay independently. | Schema fetch blocks all rendering. User sees loader. |
+| **Schema bug** | Not affected — components are compiled-in. | Broken layout, but fix is instant (edit JSON, no deploy). |
+| **New UI requirement** | Full cycle: component → PR → CI/CD → deploy | If within primitives: instant. New primitive needed: same as traditional. |
+
+### Developer Experience
+
+| Dimension | Traditional Bundling | Server-Driven UI |
+|-----------|-------------------|------------------|
+| **Hot Module Replacement** | Full HMR — instant feedback | Only primitive code changes trigger HMR |
+| **React DevTools** | Works for all components | Dynamic content harder to inspect |
+| **TypeScript safety** | Full compile-time checks throughout | Schema is JSON — no compile-time validation |
+| **Unit testing** | Test each `Step*` component with static props | Test each primitive in isolation |
+| **E2E test stability** | Static selectors (`input[name="email"]`) | Selectors depend on schema — can break without client change |
+| **Debugging** | Standard browser dev tools, stack traces | Must trace through generic renderer + server response |
+
+### Caching & Distribution
+
+| Dimension | Traditional Bundling | Server-Driven UI |
+|-----------|-------------------|------------------|
+| **Cache strategy** | Immutable hashed bundles with long-lived CDN cache | Static bundle + dynamic schema (different invalidation rules) |
+| **Cache invalidation** | New deploy = new hash. No staleness concerns. | Must balance: cache schema (stale UI) vs always fetch (no offline) |
+| **Service worker** | Can precache entire app | Can only precache primitive shell |
+| **Update propagation** | Users download new bundle on next visit | Schema change applies immediately on next fetch |
+
+### Code Complexity
+
+| Dimension | Traditional Bundling | Server-Driven UI |
+|-----------|-------------------|------------------|
+| **File structure** | N step components + 1 `switch(stepId)` | M primitives + 1 `switch(field.type)` |
+| **Scaling pattern** | Linear — each new feature adds components | Constant — primitives are reused |
+| **Business logic location** | Spread across step components | Centralized in server schema |
+| **Design consistency** | Relies on dev discipline | Enforced by schema language |
 
 ---
 
