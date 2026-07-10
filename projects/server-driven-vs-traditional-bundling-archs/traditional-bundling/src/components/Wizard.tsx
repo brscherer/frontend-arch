@@ -4,11 +4,10 @@ import StepEmail from "./StepEmail.js"
 import StepProfile from "./StepProfile.js"
 import StepPreferences from "./StepPreferences.js"
 import StepPlan from "./StepPlan.js"
-import StepBilling from "./StepBilling.js"
 import StepReview from "./StepReview.js"
 import StepConfirmation from "./StepConfirmation.js"
 
-const STEPS = ["email", "preferences", "profile", "plan", "billing"]
+const STEPS = ["email", "preferences", "profile", "plan", "review"]
 
 export default function Wizard() {
   const { state } = useWizard()
@@ -23,7 +22,7 @@ export default function Wizard() {
   return (
     <div className="wizard">
       <div className="progress">
-        {STEPS.slice(0, -1).map((id, i) => (
+        {STEPS.map((id, i) => (
           <span
             key={id}
             className={`step-dot ${i === state.currentStep ? "active" : ""} ${i < state.currentStep ? "done" : ""}`}
@@ -53,8 +52,6 @@ function StepSwitch({ stepId }: { stepId: string }) {
       return <StepPreferences />
     case "plan":
       return <StepPlan />
-    case "billing":
-      return <StepBilling />
     default:
       return <div className="error">Unknown step: {stepId}</div>
   }
