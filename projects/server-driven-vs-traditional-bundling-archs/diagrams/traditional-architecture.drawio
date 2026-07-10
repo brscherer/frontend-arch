@@ -35,12 +35,12 @@
           <mxGeometry x="40" y="184" width="140" height="28" as="geometry" />
         </mxCell>
 
-        <mxCell id="src-ellipsis" value="..." style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=14;fontColor=#1565c0;" vertex="1" parent="1">
-          <mxGeometry x="40" y="212" width="140" height="20" as="geometry" />
+        <mxCell id="src-step-review" value="StepReview.tsx" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="212" width="140" height="28" as="geometry" />
         </mxCell>
 
-        <mxCell id="src-count" value="7 step components" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=8;fontColor=#1565c0;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="40" y="82" width="140" height="14" as="geometry" />
+        <mxCell id="src-count" value="5 step components + confirmation" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=8;fontColor=#1565c0;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="82" width="170" height="14" as="geometry" />
         </mxCell>
 
         <mxCell id="src-wizard" value="Wizard.tsx" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#0d47a1;fontSize=11;fontStyle=1;" vertex="1" parent="1">
@@ -81,7 +81,7 @@
           <mxGeometry x="610" y="238" width="180" height="16" as="geometry" />
         </mxCell>
 
-        <mxCell id="bundle-size" value="151 KB (48 KB gzip)" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=9;fontColor=#bf360c;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="bundle-size" value="150 KB (48 KB gzip)" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=9;fontColor=#bf360c;fontStyle=1;" vertex="1" parent="1">
           <mxGeometry x="610" y="252" width="180" height="14" as="geometry" />
         </mxCell>
 
@@ -177,28 +177,15 @@
           <mxGeometry x="360" y="630" width="180" height="50" as="geometry" />
         </mxCell>
 
-        <mxCell id="api-note" value="Provides step IDs only" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=10;fontColor=#2e7d32;" vertex="1" parent="1">
-          <mxGeometry x="360" y="680" width="180" height="16" as="geometry" />
+        <mxCell id="api-note" value="Handles form submission only&#10;(POST /api/wizard/submit)" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=10;fontColor=#2e7d32;" vertex="1" parent="1">
+          <mxGeometry x="360" y="680" width="180" height="28" as="geometry" />
         </mxCell>
 
         <mxCell id="offline-note" value="✓ UI components are cached in bundle —&#10;app works offline" style="text;html=1;strokeColor=none;fillColor=#e8f5e9;align=center;fontSize=9;fontColor=#2e7d32;rounded=1;" vertex="1" parent="1">
           <mxGeometry x="360" y="698" width="180" height="30" as="geometry" />
         </mxCell>
 
-        <mxCell id="dataflow-stepid" value="step IDs flow" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeWidth=1;strokeColor=#2e7d32;dashed=1;fontSize=8;" edge="1" parent="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="450" y="660" as="sourcePoint" />
-            <mxPoint x="450" y="610" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-
-        <!-- Arrow: API → renderer -->
-        <mxCell id="arrow-api-render" value="GET step IDs" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;strokeWidth=1.5;strokeColor=#2e7d32;dashed=1;fontSize=10;" edge="1" parent="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="450" y="628" as="sourcePoint" />
-            <mxPoint x="450" y="535" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
+        <!-- Note: no API dependency for UI structure -->
 
         <!-- Legend -->
         <mxCell id="legend" value="Legend" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontStyle=1;fontColor=#616161;" vertex="1" parent="1">
@@ -284,13 +271,13 @@
           <mxGeometry x="300" y="370" width="150" height="30" as="geometry" />
         </mxCell>
 
-        <!-- StepProfile -->
-        <mxCell id="h-step-profile" value="StepProfile.tsx" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#42a5f5;strokeColor=#1565c0;fontSize=10;fontColor=#ffffff;" vertex="1" parent="1">
+        <!-- StepPreferences -->
+        <mxCell id="h-step-prefs" value="StepPreferences.tsx" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#42a5f5;strokeColor=#1565c0;fontSize=10;fontColor=#ffffff;" vertex="1" parent="1">
           <mxGeometry x="300" y="410" width="150" height="30" as="geometry" />
         </mxCell>
 
-        <!-- StepPreferences -->
-        <mxCell id="h-step-prefs" value="StepPreferences.tsx" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#42a5f5;strokeColor=#1565c0;fontSize=10;fontColor=#ffffff;" vertex="1" parent="1">
+        <!-- StepProfile -->
+        <mxCell id="h-step-profile" value="StepProfile.tsx" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#42a5f5;strokeColor=#1565c0;fontSize=10;fontColor=#ffffff;" vertex="1" parent="1">
           <mxGeometry x="300" y="450" width="150" height="30" as="geometry" />
         </mxCell>
 
@@ -299,23 +286,18 @@
           <mxGeometry x="300" y="490" width="150" height="30" as="geometry" />
         </mxCell>
 
-        <!-- StepBilling -->
-        <mxCell id="h-step-billing" value="StepBilling.tsx (conditional)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ef9a9a;strokeColor=#c62828;fontSize=10;fontColor=#ffffff;" vertex="1" parent="1">
-          <mxGeometry x="480" y="370" width="170" height="30" as="geometry" />
-        </mxCell>
-
         <!-- StepReview -->
         <mxCell id="h-step-review" value="StepReview.tsx" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#42a5f5;strokeColor=#1565c0;fontSize=10;fontColor=#ffffff;" vertex="1" parent="1">
-          <mxGeometry x="480" y="410" width="150" height="30" as="geometry" />
+          <mxGeometry x="300" y="530" width="150" height="30" as="geometry" />
         </mxCell>
 
         <!-- StepConfirmation -->
         <mxCell id="h-step-confirm" value="StepConfirmation.tsx" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#66bb6a;strokeColor=#2e7d32;fontSize=10;fontColor=#ffffff;" vertex="1" parent="1">
-          <mxGeometry x="480" y="450" width="170" height="30" as="geometry" />
+          <mxGeometry x="480" y="370" width="170" height="30" as="geometry" />
         </mxCell>
 
         <!-- Arrow from wizard to step group -->
-        <mxCell id="h-edge-wizard-steps" value="switch(stepId)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeWidth=1.5;strokeColor=#1565c0;fontSize=9;" edge="1" parent="1">
+        <mxCell id="h-edge-wizard-steps" value="STEPS[index] → switch(stepId)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeWidth=1.5;strokeColor=#1565c0;fontSize=9;" edge="1" parent="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="440" y="290" as="sourcePoint" />
             <mxPoint x="550" y="355" as="targetPoint" />
@@ -323,18 +305,13 @@
         </mxCell>
 
         <!-- Note about sequential steps -->
-        <mxCell id="h-sequential-note" value="Steps rendered in&#10;hardcoded sequence.&#10;Changing order = deploy." style="text;html=1;strokeColor=none;fillColor=#fff3e0;align=center;fontSize=9;fontColor=#e65100;rounded=1;" vertex="1" parent="1">
+        <mxCell id="h-sequential-note" value="STEPS constant defines order.&#10;Baked into bundle at build time.&#10;Changing order = deploy." style="text;html=1;strokeColor=none;fillColor=#fff3e0;align=center;fontSize=9;fontColor=#e65100;rounded=1;" vertex="1" parent="1">
           <mxGeometry x="680" y="375" width="150" height="50" as="geometry" />
         </mxCell>
 
-        <!-- Note about conditional -->
-        <mxCell id="h-conditional-note" value="Billing step only shown&#10;when plan === &quot;pro&quot;" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=9;fontColor=#c62828;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="480" y="495" width="170" height="30" as="geometry" />
-        </mxCell>
-
         <!-- API note -->
-        <mxCell id="h-api-note" value="API provides step IDs only.&#10;Client maps ID → component." style="text;html=1;strokeColor=none;fillColor=#e8f5e9;align=center;fontSize=9;fontColor=#2e7d32;rounded=1;" vertex="1" parent="1">
-          <mxGeometry x="680" y="440" width="150" height="40" as="geometry" />
+        <mxCell id="h-api-note" value="Step order defined by&#10;STEPS constant in Wizard.tsx.&#10;API only handles submission." style="text;html=1;strokeColor=none;fillColor=#e8f5e9;align=center;fontSize=9;fontColor=#2e7d32;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="440" width="150" height="50" as="geometry" />
         </mxCell>
 
         <!-- Legend -->
@@ -348,11 +325,8 @@
         <mxCell id="h-leg-step" value="Step component" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#42a5f5;strokeColor=#1565c0;fontSize=9;fontColor=#ffffff;" vertex="1" parent="1">
           <mxGeometry x="180" y="675" width="120" height="22" as="geometry" />
         </mxCell>
-        <mxCell id="h-leg-cond" value="Conditional" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ef9a9a;strokeColor=#c62828;fontSize=9;fontColor=#ffffff;" vertex="1" parent="1">
-          <mxGeometry x="320" y="675" width="120" height="22" as="geometry" />
-        </mxCell>
         <mxCell id="h-leg-final" value="Final / terminal" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#66bb6a;strokeColor=#2e7d32;fontSize=9;fontColor=#ffffff;" vertex="1" parent="1">
-          <mxGeometry x="460" y="675" width="120" height="22" as="geometry" />
+          <mxGeometry x="320" y="675" width="120" height="22" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
