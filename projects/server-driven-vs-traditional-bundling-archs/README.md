@@ -14,7 +14,9 @@ Both projects implement the same **multi-step registration wizard**:
 - Review & submit
 - Confirmation
 
-The shared API server (`shared/`) provides the wizard data. What differs is **where the UI layout lives**.
+The shared API server (`shared/`) provides wizard data. What differs is **where the UI layout lives**:
+- **Traditional**: the API only accepts form submissions. Fields, steps, validation, and order are all baked into the client bundle.
+- **SDUI**: the API serves a full JSON schema that defines every field, step, and validation rule. The client is a generic renderer.
 
 > **Diagrams:** Visual architecture diagrams are available in the [`diagrams/`](./diagrams/) folder, including architecture flow, component hierarchy, deploy cycle comparison, bundle size analysis, and failure mode comparisons.
 
@@ -30,7 +32,7 @@ UI is compiled into JavaScript bundles at build time. Every screen, component, a
 
 See [`diagrams/traditional-architecture.drawio`](./diagrams/traditional-architecture.drawio) for a visual diagram.
 
-The API only tells the client *which steps to show* (by ID). The client maps each ID to a compiled component.
+Step order is defined by a `STEPS` constant in `Wizard.tsx`, baked into the bundle at build time. Each step is a dedicated component (`StepEmail`, `StepProfile`, etc.) hardcoded with its own fields, labels, and validation. The API is only used for form submission (`POST /api/wizard/submit`) — it has no influence over UI structure.
 
 ### Pros
 
@@ -99,6 +101,7 @@ The client has **zero knowledge** of specific steps. It only knows how to render
 | **Component count** | 7 step components + 3 layout files (grows with features) | 6 primitives + 1 layout renderer (fixed) |
 | **Adding a new step** | Create `.tsx` file → import → add switch case → deploy | Add entry to server schema JSON only |
 | **Skinny vs fat client** | Fat client — all logic compiled in | Skinny client — rendering logic on server |
+| **API dependency** | Only uses `POST /api/wizard/submit` for form data. No UI schema coupling. | Uses `GET /api/wizard/schema` for layout + `POST /api/wizard/submit`. Full coupling. |
 
 ### Performance & Bundle
 
@@ -191,7 +194,7 @@ In a small app like this wizard, bundle differences are negligible (~4 KB). But 
 | # | Experiment | What to Observe |
 |---|-----------|-----------------|
 | 1 | **Reorder steps** — Edit `shared/src/steps.ts` and reorder the array. Reload both apps. | Traditional: unchanged (hardcoded order). SDUI: reflects new order immediately. |
-| 2 | **Add a field** — Add a new `FieldDefinition` to any step in `steps.ts`. | Traditional: nothing changes (client ignores unknown fields). SDUI: new field renders automatically. |
+| 2 | **Add a field** — Add a new `FieldDefinition` to any step in `steps.ts`. | Traditional: nothing changes (client doesn't fetch schema at all). SDUI: new field renders automatically. |
 | 3 | **Change conditional logic** — Change `condition.equals` on the billing step from `"pro"` to `"free"`. | Traditional: unchanged. SDUI: billing now shows for free users. |
 | 4 | **Bundle analysis** — Run `npx vite build --analyze` on both projects (or compare `dist/` sizes). | Traditional grows with step count. SDUI stays constant. |
 | 5 | **Simulate API failure** — Stop the shared server and reload both apps. | Traditional: progress UI renders (can't submit). SDUI: blank screen with error. |

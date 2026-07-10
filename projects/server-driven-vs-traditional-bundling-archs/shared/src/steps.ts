@@ -45,31 +45,7 @@ const defaultSchema: WizardSchema = {
         { label: "Next", type: "next", variant: "primary" },
       ],
     },
-    {
-      id: "profile",
-      title: "Profile",
-      description: "Tell us about yourself",
-      fields: [
-        {
-          name: "display_name",
-          label: "Display name",
-          type: "text",
-          required: true,
-          placeholder: "Jane Doe",
-          validation: { min: 2, message: "Name must be at least 2 characters" },
-        },
-        {
-          name: "phone",
-          label: "Phone number",
-          type: "phone",
-          placeholder: "+1 (555) 123-4567",
-        },
-      ],
-      actions: [
-        { label: "Back", type: "back", variant: "ghost" },
-        { label: "Next", type: "next", variant: "primary" },
-      ],
-    },
+    
     {
       id: "preferences",
       title: "Preferences",
@@ -95,6 +71,32 @@ const defaultSchema: WizardSchema = {
             { label: "Weekly newsletter", value: "newsletter" },
             { label: "Account activity", value: "activity" },
           ],
+        },
+      ],
+      actions: [
+        { label: "Back", type: "back", variant: "ghost" },
+        { label: "Next", type: "next", variant: "primary" },
+      ],
+    },
+
+    {
+      id: "profile",
+      title: "Profile",
+      description: "Tell us about yourself",
+      fields: [
+        {
+          name: "display_name",
+          label: "Display name",
+          type: "text",
+          required: true,
+          placeholder: "Jane Doe",
+          validation: { min: 2, message: "Name must be at least 2 characters" },
+        },
+        {
+          name: "phone",
+          label: "Phone number",
+          type: "phone",
+          placeholder: "+1 (555) 123-4567",
         },
       ],
       actions: [

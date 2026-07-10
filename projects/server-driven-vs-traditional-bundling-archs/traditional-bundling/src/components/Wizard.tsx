@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useWizard } from "../context/WizardContext.js"
-import { fetchWizardSteps } from "../api/client.js"
 import StepEmail from "./StepEmail.js"
 import StepProfile from "./StepProfile.js"
 import StepPreferences from "./StepPreferences.js"
@@ -9,30 +8,22 @@ import StepBilling from "./StepBilling.js"
 import StepReview from "./StepReview.js"
 import StepConfirmation from "./StepConfirmation.js"
 
+const STEPS = ["email", "preferences", "profile", "plan", "billing"]
+
 export default function Wizard() {
-  const { state, dispatch } = useWizard()
-  const [loading, setLoading] = useState(true)
+  const { state } = useWizard()
   const [complete, setComplete] = useState(false)
 
-  useEffect(() => {
-    fetchWizardSteps()
-      .then((steps) => dispatch({ type: "SET_STEPS", steps: [...steps, "confirmation"] }))
-      .finally(() => setLoading(false))
-  }, [dispatch])
-
-  if (loading) return <div className="loading">Loading wizard...</div>
-  if (state.steps.length === 0) return <div className="error">No steps configured</div>
-
-  const stepId = state.steps[state.currentStep]
+  const stepId = STEPS[state.currentStep]
   if (!stepId) return <div className="error">Step not found</div>
   if (complete) return <StepConfirmation />
 
-  const isLastStep = state.currentStep === state.steps.length - 1
+  const isLastStep = state.currentStep === STEPS.length - 1
 
   return (
     <div className="wizard">
       <div className="progress">
-        {state.steps.slice(0, -1).map((id, i) => (
+        {STEPS.slice(0, -1).map((id, i) => (
           <span
             key={id}
             className={`step-dot ${i === state.currentStep ? "active" : ""} ${i < state.currentStep ? "done" : ""}`}
